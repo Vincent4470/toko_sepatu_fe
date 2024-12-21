@@ -1,42 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:toko_sepatu_fe/them/theme.dart';
 import 'package:toko_sepatu_fe/widget/email_input.dart';
+import 'package:toko_sepatu_fe/widget/full_name.dart';
 import 'package:toko_sepatu_fe/widget/password_input.dart';
-import 'package:toko_sepatu_fe/widget/sign_in_button.dart';
+import 'package:toko_sepatu_fe/widget/sign_up_button.dart';
+import 'package:toko_sepatu_fe/widget/user_name.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    Widget header(BuildContext context) {
-      return Container(
-        margin: EdgeInsets.only(
-          top: 30,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Login',
-              style: primaryTextStyle.copyWith(
-                fontSize: 24,
-                fontWeight: semiBold,
-              ),
+  Widget header(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(
+        top: 30,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Sign Up',
+            style: primaryTextStyle.copyWith(
+              fontSize: 24,
+              fontWeight: semiBold,
             ),
-            SizedBox(
-              height: 2,
-            ),
-            Text(
-              'Sign in to continue',
-              style: subtitleTextStyle,
-            ),
-          ],
-        ),
-      );
-    }
+          ),
+          SizedBox(
+            height: 2,
+          ),
+          Text(
+            'Register and Happy Shopping',
+            style: subtitleTextStyle,
+          ),
+        ],
+      ),
+    );
+  }
 
-     Widget footer(BuildContext context) {
+   Widget footer(BuildContext context) {
       return Container(
         margin: EdgeInsets.only(
           bottom: 30,
@@ -45,17 +46,17 @@ class SignInPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Don\'t have an account? ',
+              'Already have an account? ',
               style: subtitleTextStyle.copyWith(
                 fontSize: 12,
               ),
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/sign-up');
+                Navigator.pop(context);
               },
               child: Text(
-                'Sign Up',
+                'Sign in',
                 style: purpleTextStyle.copyWith(
                   fontSize: 12,
                   fontWeight: medium,
@@ -67,6 +68,7 @@ class SignInPage extends StatelessWidget {
       );
     }
 
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor1,
       resizeToAvoidBottomInset: false,
@@ -79,9 +81,11 @@ class SignInPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               header(context),
+              fullnameInput(),
+              usernameInput(),
               emailInput(),
               passwordInput(),
-              signInButton(context),
+              signupButton(context),
               Spacer(),
               footer(context),
             ],
