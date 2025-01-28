@@ -9,7 +9,6 @@ import 'package:toko_sepatu_fe/widget/user_name.dart';
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
 
-  @override
   Widget header(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
@@ -68,6 +67,7 @@ class SignUpPage extends StatelessWidget {
       );
     }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor1,
